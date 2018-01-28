@@ -1,0 +1,33 @@
+<import src="../../common/template/head.wxml" />
+<template is="head" data="{{...head}}" />
+
+<swiper style="height:200rpx;" autoplay="true" interval="3000" circular="true" indicator-dots="true">
+  <block wx:for="{{indexData.swiperImg}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" style="height:100%;width:100%;"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<block wx:for="{{indexData.goodsList}}">
+  <navigator url="./detail/detail?title={{item.title}}&id={{item.id}}">
+    <view style="height:216rpx;" class="detail">
+      <image src="{{item.coverImg}}" style="height:172rpx;width:172rpx;"></image>
+      <view class="intro-warp">
+        <view class="intro">
+          <view style="font-size:28rpx; color:#686868">{{item.goodsDetail}}</view>
+          <view style="font-size:26rpx; color:#686868">{{item.fromCity}} -> {{item.toCity}}</view>
+          <view style="font-size:26rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">{{item.deliverTime}} 发货</view>
+        </view>
+        <view class="buy">
+
+          <view class="rating">
+            <text>{{item.price}}</text>
+          </view>
+          <navigator url="../theaterList/theaterList?title={{item.title}}&id={{item.id}}" class="buy-nav pre">查看</navigator>
+          <!-- <view style="font-size:24rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">{{item.publishTime}}</view> -->
+        </view>
+      </view>
+    </view>
+  </navigator>
+</block>
+<view style="font-size:28rpx; color:#686868; padding-top:30rpx; padding-bottom:30rpx;display: flex;justify-content: center;align-items: center">努力加载中...</view>

@@ -1,0 +1,12 @@
+<image src="{{des.coverImg}}" class="filter"></image>
+<view class="head">
+  <image src="{{des.coverImg}}" style="width:100%;height:420rpx"></image>
+</view>
+<view class="warp" style="height:wrap;">
+  <view class="tBar">{{des.goodsDetail}}</view>
+</view>
+
+<view class="buttons">
+  <button bindtap="navi" type='primary'>查看位置</button>
+  <button bindtap="callPhone" type="warn">拨打 {{des.phoneNum}}</button>
+</view>

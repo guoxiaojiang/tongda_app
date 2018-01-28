@@ -1,0 +1,71 @@
+@import "../../../common/ui.wxss";
+
+page {
+  background-color: #f5f5f5;
+}
+
+.head {
+  height: 420rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.filter {
+  filter: blur(24px);
+  height: 420rpx;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+}
+
+.mTitle {
+  font-size: 30rpx;
+  color: white;
+}
+.buttons {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.call {
+  background-color: #009900;
+  width: 50%;
+  text-align: center;
+  line-height: 94rpx;
+  color: #fff;
+  float:right;
+  font-size: 26rpx;
+  margin:6rpx;
+}
+
+.navi {
+  background-color: #d43e37;
+  width: 50%;
+  text-align: center;
+  line-height: 94rpx;
+  color: #fff;
+  font-size: 26rpx;
+  margin:6rpx;
+}
+.navi-down {
+  background-color: #ff0000;
+  width: 50%;
+  text-align: center;
+  line-height: 94rpx;
+  color: #fff;
+  font-size: 26rpx;
+  margin:6rpx;
+}
+
+.space {
+  margin-right: 30rpx;
+}
+
+.flex {
+  height: 120rpx;
+  overflow: hidden;
+}
+
