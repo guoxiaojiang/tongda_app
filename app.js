@@ -66,6 +66,6 @@ App({
         positionCity: '',
         currentCity: '',
         remind: false,
-        host:'192.168.1.101:8888'
+        host:'192.168.1.102:8888'
     }
 })

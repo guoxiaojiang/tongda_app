@@ -1,9 +1,24 @@
 <image src="{{des.coverImg}}" class="filter"></image>
-<view class="head">
-  <image src="{{des.coverImg}}" style="width:100%;height:420rpx"></image>
-</view>
+
+<swiper class="head" autoplay="{{autoplay}}" indicator-dots="{{indicator_dots}}">
+  <block wx:for="{{des.coverImgs}}">
+    <swiper-item>
+      <image src="{{item}}" style="height:100%;width:100%;"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
 <view class="warp" style="height:wrap;">
   <view class="tBar">{{des.goodsDetail}}</view>
+</view>
+<view class="warp" style="height:wrap;">
+  <view class='details'>
+    <view class="price">{{des.price}}</view>
+    <text class="tBar" style='font-size: 26rpx;  color: #999999' decode="{{true}}" space="{{true}}">{{des.deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{des.publishTime}}发布</text>
+  </view>
+</view>
+<view class="warp" style="height:wrap;">
+  <view class="tBar">装货地址:{{des.address}}</view>
 </view>
 
 <view class="buttons">

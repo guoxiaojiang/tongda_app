@@ -1,6 +1,0 @@
-<import src="../../common/template/theaterList.wxml"/>
-<import src="../../common/template/head.wxml"/>
-<template is="head" data="{{...head}}"/>
-<view class="body">
-  <template is="theaterList" data="{{theater}}"/>
-</view>

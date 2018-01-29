@@ -28,6 +28,7 @@ page {
   position: fixed;
   bottom: 0;
   width: 100%;
+  padding-bottom: 10rpx;
 }
 
 .call {
@@ -67,5 +68,16 @@ page {
 .flex {
   height: 120rpx;
   overflow: hidden;
+}
+
+.price {
+  margin: 28rpx 0 20rpx 28rpx;
+  font-size: 36rpx;
+  color: #ff0000
+}
+
+.details {
+  display: flex;
+   align-items: flex-end;
 }
 

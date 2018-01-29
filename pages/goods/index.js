@@ -8,7 +8,12 @@ Page({
         },
         indexData: {},
         counts: 10,
-        start: 0
+        start: 0,
+        indicatorDots: false,
+        autoplay: false,
+        interval: 5000,
+        duration: 1000,
+        index: 2
     },
 
     onLoad: function () {

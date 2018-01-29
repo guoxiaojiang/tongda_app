@@ -6,7 +6,6 @@
 }
 
 .selpoi {
-  
   font-size: 14px;
   margin:0 26rpx;
   color: white;
@@ -93,3 +92,5 @@
   color: #ffb400;
   font-size: 28rpx;
 }
+
+.hd{height:500rpx;background-color: #f3f3f3; }

@@ -1,7 +1,7 @@
 <import src="../../common/template/head.wxml" />
 <template is="head" data="{{...head}}" />
 
-<swiper style="height:200rpx;" autoplay="true" interval="3000" circular="true" indicator-dots="true">
+<swiper style="height:240rpx;" autoplay="true" interval="3000" circular="true" indicator-dots="true">
   <block wx:for="{{indexData.swiperImg}}" wx:key="*this">
     <swiper-item>
       <image src="{{item}}" style="height:100%;width:100%;"></image>

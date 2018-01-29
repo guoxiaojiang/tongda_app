@@ -1,23 +1,13 @@
 {
   "pages": [
     "pages/goods/index",
-    "pages/theater/logs",
-    "pages/explore/explore",
+    "pages/publish/publish",
     "pages/profile/profile",
     "pages/goods/position/position",
     "pages/goods/detail/detail",
-    "pages/theaterList/theaterList",
     "pages/search/search",
     "pages/search/indexsearch/indexsearch",
-    "pages/shop/shop",
-    "pages/shop/map/map",
-    "pages/shop/seat/seat",
-    "pages/book/book",
-
-
-
-
-
+    "pages/trucks/index",
     "pages/profile/order/order",
     "pages/profile/coupon/coupon",
     "pages/profile/vipCard/vipCard",
@@ -43,14 +33,14 @@
         "selectedIconPath": "img/tab/1s.png"
       },
       {
-        "pagePath": "pages/theater/logs",
+        "pagePath": "pages/trucks/index",
         "text": "车源",
         "iconPath": "img/tab/2.png",
         "selectedIconPath": "img/tab/2s.png"
       },
       {
-        "pagePath": "pages/explore/explore",
-        "text": "发现",
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
         "iconPath": "img/tab/3.png",
         "selectedIconPath": "img/tab/3s.png"
       },

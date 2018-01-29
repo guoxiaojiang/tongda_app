@@ -2,7 +2,9 @@ var app = getApp()
 Page({
   data: {
     des: {},
-    flexed: false
+    flexed: false,
+    autoplay: false,
+    indicator_dots: false
   },
   onLoad: function (param) {
     var that = this;

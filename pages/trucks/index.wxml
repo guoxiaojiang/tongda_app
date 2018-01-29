@@ -1,0 +1,28 @@
+<import src="../../common/template/head.wxml" />
+<template is="head" data="{{...head}}" />
+
+<swiper style="height:240rpx;" autoplay="true" interval="3000" circular="true" indicator-dots="true">
+  <block wx:for="{{indexData.swiperImg}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" style="height:100%;width:100%;"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='boxTwo'>
+  <text>车源详情</text>
+</view>
+
+  <block wx:for="{{indexData.trucks}}" wx:for-item="item" class="left" wx:for-index="idx">
+    <view catchtap='btn' data-id="{{item.id}}">
+      <view class='main_boxtwo'>
+        <image class='main-image' src="{{item.image}}"></image>
+        <view class='box'>
+          <text class='main-title'>{{item.title}}</text>
+          <text class='main-titleTwo'>距您 {{item.distance}} 公里</text>
+          <text class='main-load'>载重 {{item.load}} 吨</text>
+        </view>
+      </view>
+    </view>
+  </block>
+<view style="font-size:28rpx; color:#686868; margin:10rpx 0rpx 20rpx 300rpx">努力加载中...</view>
