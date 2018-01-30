@@ -8,6 +8,7 @@
     "pages/search/search",
     "pages/search/indexsearch/indexsearch",
     "pages/trucks/index",
+    "pages/trucks/detail/truck-details",
     "pages/profile/order/order",
     "pages/profile/coupon/coupon",
     "pages/profile/vipCard/vipCard",

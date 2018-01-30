@@ -23,7 +23,7 @@
           <view class="rating">
             <text>{{item.price}}</text>
           </view>
-          <navigator url="../theaterList/theaterList?title={{item.title}}&id={{item.id}}" class="buy-nav pre">查看</navigator>
+          <navigator url="./detail/detail?title={{item.title}}&id={{item.id}}" class="buy-nav pre">查看</navigator>
           <!-- <view style="font-size:24rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">{{item.publishTime}}</view> -->
         </view>
       </view>

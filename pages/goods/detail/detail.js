@@ -8,8 +8,8 @@ Page({
   },
   onLoad: function (param) {
     var that = this;
-   var title = param.title;
-   var id=param.id;
+    var title = param.title;
+    var id = param.id;
     wx.request({
       url: 'http://' + app.globalData.host + '/api/goodsDetail?title=' + param.title,
       data: {},
@@ -26,14 +26,14 @@ Page({
       flexed: !that.data.flexed
     })
   },
-  callPhone: function() {
+  callPhone: function () {
     var that = this
     wx.makePhoneCall({
       phoneNumber: that.data.des.phoneNum,
     })
   },
 
-  navi: function() {
+  navi: function () {
     var that = this
     wx.openLocation({
       latitude: parseFloat(that.data.des.latitude),

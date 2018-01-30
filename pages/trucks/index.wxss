@@ -72,3 +72,9 @@
   margin-top: 10rpx;
   color: red;
 }
+
+.load-more{
+  font-size:28rpx; 
+  color:#686868; 
+  margin-left: 300rpx;
+}

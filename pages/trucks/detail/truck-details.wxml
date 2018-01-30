@@ -1,0 +1,40 @@
+<view id='box'>
+
+  <swiper class="head" autoplay="{{autoplay}}" indicator-dots="{{indicator_dots}}">
+    <block wx:for="{{des.coverImgs}}">
+      <swiper-item>
+        <image src="{{item}}" style="height:100%;width:100%;"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="warp" style="height:wrap;">
+    <view class="tBar">{{des.lines}}</view>
+  </view>
+
+  <view class="warp" style="height:wrap;">
+    <view class='userinfo'>
+      <image src="{{des.avatar}}" style="height:100rpx;width:100rpx; margin-left:28rpx; margin-top:20rpx"></image>
+      <view class="nick">{{des.nick}}</view>
+    </view>
+    <view class='grades'>
+    <view class='grade'>接单率</view>
+    <view class='grade'>服务质量</view>
+    <view class='grade'>配送速度</view>
+    </view>
+  </view>
+
+  <view class='bottom'>
+    <view class='left'>
+      <text class='text' bindtap="callPhone">拨打电话</text>
+    </view>
+    <view class='right'>
+      <view class='right-address'>
+        <text class='text' bindtap="showAddress">查看位置</text>
+      </view>
+      <view class='right-service'>
+        <text class='text' bindtap="service">联系客服</text>
+      </view>
+    </view>
+  </view>
+</view>

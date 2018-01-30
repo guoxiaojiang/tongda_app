@@ -9,12 +9,9 @@
   </block>
 </swiper>
 
-<view class='boxTwo'>
-  <text>车源详情</text>
-</view>
-
   <block wx:for="{{indexData.trucks}}" wx:for-item="item" class="left" wx:for-index="idx">
-    <view catchtap='btn' data-id="{{item.id}}">
+  <navigator url="./detail/truck-details?id={{item.id}}">
+    <view>
       <view class='main_boxtwo'>
         <image class='main-image' src="{{item.image}}"></image>
         <view class='box'>
@@ -24,5 +21,6 @@
         </view>
       </view>
     </view>
+</navigator>
   </block>
-<view style="font-size:28rpx; color:#686868; margin:10rpx 0rpx 20rpx 300rpx">努力加载中...</view>
+<view class='load-more'>努力加载中...</view>
