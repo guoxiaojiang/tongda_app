@@ -22,6 +22,9 @@
 
 .grade {
   width: 33%;
+}
+
+.gradeText {
   font-size: 24rpx;
   margin: 28rpx 0 20rpx 20rpx;
   text-align: center
@@ -72,4 +75,11 @@
   text-align: center;
   font-size: 25rpx;
 }
+.service {
+  background: #ff9800;
 
+}
+
+button::after {
+  border: none;
+}

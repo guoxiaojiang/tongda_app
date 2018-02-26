@@ -1,7 +1,7 @@
-<image src="{{des.coverImg}}" class="filter"></image>
+<image src="{{coverImg}}" class="filter"></image>
 
 <swiper class="head" autoplay="{{autoplay}}" indicator-dots="{{indicator_dots}}">
-  <block wx:for="{{des.coverImgs}}">
+  <block wx:for="{{coverImgs}}">
     <swiper-item>
       <image src="{{item}}" style="height:100%;width:100%;"></image>
     </swiper-item>
@@ -9,19 +9,19 @@
 </swiper>
 
 <view class="warp" style="height:wrap;">
-  <view class="tBar">{{des.goodsDetail}}</view>
+  <view class="tBar">{{goodsDetail}}</view>
 </view>
 <view class="warp" style="height:wrap;">
   <view class='details'>
-    <view class="price">{{des.price}}</view>
-    <text class="tBar" style='font-size: 26rpx;  color: #999999' decode="{{true}}" space="{{true}}">{{des.deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{des.publishTime}}发布</text>
+    <view class="price">{{price}}</view>
+    <text class="tBar" style='font-size: 26rpx;  color: #999999' decode="{{true}}" space="{{true}}">{{deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{publishTime}}发布</text>
   </view>
 </view>
 <view class="warp" style="height:wrap;">
-  <view class="tBar">装货地址:{{des.address}}</view>
+  <view class="tBar">装货地址:{{fromAddress}}</view>
 </view>
 
 <view class="buttons">
-  <button bindtap="navi" type='primary'>查看位置</button>
-  <button bindtap="callPhone" type="warn">拨打 {{des.phoneNum}}</button>
+  <button bindtap="navi" type='primary'>装货位置</button>
+  <button bindtap="callPhone" type="warn">拨打 {{phoneNum}}</button>
 </view>

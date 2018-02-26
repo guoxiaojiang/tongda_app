@@ -1,1 +1,99 @@
-<text>即将开通</text>
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">发布货源</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">发布车源</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <swiper-item>
+    <!--添加图片-->
+    <view class="select-consumption-patterns">
+      <view class="consumption-patterns-item" wx:for="{{consumpPatternsList}}">
+        <view class="ui-flex-ver ui-flex-center ui-p10" data-index="{{index}}" bindtap="onConsumptionItemClick">
+          <image class="consumption-patterns-item-icon" src="{{item.isSelect ? item.iconSel : item.icon}}"></image>
+        </view>
+      </view>
+    </view>
+
+    <!--名称-->
+    <view class="line"> </view>
+    <view class="deliver-item">
+      <image class="time-icon" src="../../img/publish/date.png"></image>
+      <text class="ui-ml20">货物名称</text>
+      <input class="ui-ml20 ui-flex-1" value="{{goodsName}}" type="text" placeholder="请输入" bindinput='onInputGoodsName' />
+    </view>
+
+    <!--价格-->
+    <view class="line"></view>
+    <view class="deliver-item">
+      <image class="time-icon" src="../../img/publish/date.png"></image>
+      <text class="ui-ml20">价格 (元)</text>
+      <input class="ui-ml20 ui-flex-1" bindinput="onInputPrice" type='digit' value="{{price}}" placeholder="面议" />
+    </view>
+
+        <!--联系电话-->
+    <view class="line"></view>
+    <view class="deliver-item">
+      <image class="time-icon" src="../../img/publish/date.png"></image>
+      <text class="ui-ml20">联系电话</text>
+      <input class="ui-ml20 ui-flex-1" bindinput="onInputPhone" type='number' value="{{phoneNum}}" placeholder="" />
+    </view>
+
+    <!--发货日期-->
+    <view class="line"> </view>
+    <view class="deliver-item">
+      <image class="time-icon" src="../../img/publish/date.png"></image>
+      <text class="ui-ml20">发货日期</text>
+      <picker class="date-text" mode="date" value="{{date}}" bindchange="onDateChange">
+        <view>{{date}}
+        </view>
+      </picker>
+    </view>
+
+    <!--发货时间-->
+    <view class="line"> </view>
+    <view class="deliver-item">
+      <image class="time-icon" src="../../img/publish/date.png"></image>
+      <text class="ui-ml20">发货时间</text>
+      <picker class="date-text" mode="time" value="{{time}}" bindchange="onTimeChange">
+        <view>{{time}}
+        </view>
+      </picker>
+    </view>
+
+    <!--出发地点-->
+    <view class="line"> </view>
+    <view class="deliver-item" bindtap="onfromAddressChange">
+      <image class="time-icon" src="../../img/publish/location.png"></image>
+      <text class="ui-ml20">发货地点</text>
+      <view class="date-text">{{fromAddress}}
+      </view>
+    </view>
+
+    <!--目的地-->
+    <view class="line"> </view>
+    <view class="deliver-item" bindtap="ontoAddressChange">
+      <image class="time-icon" src="../../img/publish/location.png"></image>
+      <text class="ui-ml20">收货地点</text>
+      <view class="date-text">{{toAddress}}
+      </view>
+    </view>
+
+    <!--详细信息-->
+    <view class="line"> </view>
+    <view class="deliver-detail">
+      <image style='margin-top:8rpx' class="time-icon" src="../../img/publish/date.png"></image>
+      <text class="ui-ml20">详细信息</text>
+      <input class="ui-ml20 ui-flex-1" value="{{goodsDetail}}" type="text" placeholder="请输入详细描述" maxlength='1000' bindinput='onInputGoodsDetail' />
+    </view>
+
+  <!--发布-->
+  <view class="line"></view>
+  <button class="blue-button ui-mt20" hover-class="blue-button-p"  wx:if="{{showUploading}}">正在发布...</button>
+  <button class="blue-button ui-mt20" hover-class="blue-button-p"  bindtap="onPublish" wx:else>发布</button>
+
+  </swiper-item>
+
+  <swiper-item>
+    <view>发布车源</view>
+  </swiper-item>
+</swiper>

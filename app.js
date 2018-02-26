@@ -66,6 +66,7 @@ App({
         positionCity: '',
         currentCity: '',
         remind: false,
-        host:'192.168.1.102:8888'
+        // host:'192.168.33.245:8888'
+        host:'tdtransport.cn:8888'
     }
 })

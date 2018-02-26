@@ -40,9 +40,6 @@
   font-family: "微软雅黑"
 }
 
-.left{
-  float: left;
-}
 .main_boxtwo{
   width: 50%;
   height: 460rpx;
@@ -76,5 +73,7 @@
 .load-more{
   font-size:28rpx; 
   color:#686868; 
+  padding: 50rpx 0rpx 50rpx 0rpx;
   margin-left: 300rpx;
+  justify-content:center;
 }

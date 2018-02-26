@@ -31,6 +31,27 @@ Page({
   },
 
   /**
+   * 拨打电话
+   */
+  callPhone: function () {
+    var that = this
+    wx.makePhoneCall({
+      phoneNumber: that.data.des.phoneNum,
+    })
+  },
+
+/**
+ * 查看位置
+ */
+  showAddress: function () {
+    var that = this
+    wx.openLocation({
+      latitude: parseFloat(that.data.des.latitude),
+      longitude: parseFloat(that.data.des.longitude),
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

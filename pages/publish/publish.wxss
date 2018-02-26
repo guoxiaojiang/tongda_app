@@ -1,1 +1,121 @@
-/* pages/explore/explore.wxss */
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #777;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 50%;
+  color: #777;
+}
+
+.on {
+  color: #da7c0c;
+  border-bottom: 5rpx solid #da7c0c;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: center;
+}
+
+.select-consumption-patterns {
+  width: 100%;
+  padding-top: 10rpx;
+}
+
+.consumption-patterns-item {
+  width: 25%;
+  display: inline-block;
+  position: relative;
+}
+
+.consumption-patterns-item-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.deliver-item {
+  margin: 20rpx;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.ui-ml20{
+  margin-left: 20rpx;
+}
+
+.ui-flex-ver {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.ui-flex-center {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.ui-flex-1{
+flex:1;
+}
+
+.ui-p10{
+  padding: 10rpx;
+}
+
+.date-text {
+  color: gray;
+  flex: 1;
+  text-align: end;
+}
+
+.time-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.line{
+  height: 1rpx;
+  border-top: 1rpx solid gray;
+  margin-top: 20rpx;
+}
+
+.price{
+  margin: 20rpx;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.deliver-detail {
+  margin: 20rpx;
+  display: flex;
+  -webkit-align-items: top;
+  align-items: top;
+}
+
+.blue-button{
+  background-color: #10AEFF;
+  color: white;
+}
+.blue-button-p{
+  background-color: #1E90FF;
+  color: white;
+}
+.ui-mt20 {
+  margin-top: 20rpx;
+}

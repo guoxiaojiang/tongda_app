@@ -1,11 +1,13 @@
-<view></view>
+ <view class='My-Main'>
+      <image src="{{userImage}}" class="userImage"></image>
+      <text class="userName">{{userName}}</text>
+  </view>
+
 <view class="warp">
   <view class="item">我的订单</view>
-  <view class="item">优惠券</view>
-  <view class="item last">会员卡</view>
+  <view class="item last">优惠券</view>
 </view>
 <view class="warp">
   <view class="item">收藏的货源</view>
   <view class="item last">收藏的车主</view>
 </view>
-<view></view>

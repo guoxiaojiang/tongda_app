@@ -18,9 +18,18 @@
       <view class="nick">{{des.nick}}</view>
     </view>
     <view class='grades'>
-    <view class='grade'>接单率</view>
-    <view class='grade'>服务质量</view>
-    <view class='grade'>配送速度</view>
+      <view class='grade'>
+        <view class='gradeText'>接单率</view>
+        <view class='gradeText'>98</view>
+      </view>
+      <view class='grade'>
+        <view class='gradeText'>服务质量</view>
+        <view class='gradeText'>91</view>
+      </view>
+      <view class='grade'>
+        <view class='gradeText'>配送速度</view>
+        <view class='gradeText'>88</view>
+      </view>
     </view>
   </view>
 
@@ -33,7 +42,7 @@
         <text class='text' bindtap="showAddress">查看位置</text>
       </view>
       <view class='right-service'>
-        <text class='text' bindtap="service">联系客服</text>
+        <button class='text service' open-type='contact' hover-class='none'>联系客服</button>
       </view>
     </view>
   </view>

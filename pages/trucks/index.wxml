@@ -8,8 +8,7 @@
     </swiper-item>
   </block>
 </swiper>
-
-  <block wx:for="{{indexData.trucks}}" wx:for-item="item" class="left" wx:for-index="idx">
+ <block wx:for="{{indexData.trucks}}" wx:for-item="item" wx:for-index="idx">
   <navigator url="./detail/truck-details?id={{item.id}}">
     <view>
       <view class='main_boxtwo'>
@@ -21,6 +20,7 @@
         </view>
       </view>
     </view>
-</navigator>
-  </block>
-<view class='load-more'>努力加载中...</view>
+  </navigator>
+</block> 
+
+  <view class='load-more'>努力加载中...</view>

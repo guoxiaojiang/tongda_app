@@ -9,12 +9,12 @@
   </block>
 </swiper>
 <block wx:for="{{indexData.goodsList}}">
-  <navigator url="./detail/detail?title={{item.title}}&id={{item.id}}">
+  <navigator url="./detail/detail?goodsName={{item.goodsName}}&goodsDetail={{item.goodsDetail}}&deliverDate={{item.deliverDate}}&deliverTime={{item.deliverTime}}&publishTime={{item.publishTime}}&coverImg={{item.coverImg}}&price={{item.price}}&fromAddress={{item.fromAddress}}&toAddress={{item.toAddress}}&fromLatitude={{item.fromLatitude}}&fromLongitude={{item.fromLongitude}}&phoneNum={{item.phoneNum}}">
     <view style="height:216rpx;" class="detail">
       <image src="{{item.coverImg}}" style="height:172rpx;width:172rpx;"></image>
       <view class="intro-warp">
         <view class="intro">
-          <view style="font-size:28rpx; color:#686868">{{item.goodsDetail}}</view>
+          <view style="font-size:28rpx; color:#686868">{{item.goodsName}}</view>
           <view style="font-size:26rpx; color:#686868">{{item.fromCity}} -> {{item.toCity}}</view>
           <view style="font-size:26rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">{{item.deliverTime}} 发货</view>
         </view>
@@ -30,4 +30,5 @@
     </view>
   </navigator>
 </block>
-<view style="font-size:28rpx; color:#686868; padding-top:30rpx; padding-bottom:30rpx;display: flex;justify-content: center;align-items: center">努力加载中...</view>
+<view wx:if="{{hasMore}}" style="font-size:28rpx; color:#686868; padding-top:30rpx; padding-bottom:30rpx;display: flex;justify-content: center;align-items: center">努力加载中...</view>
+<view wx:else style="font-size:28rpx; color:#686868; padding-top:30rpx; padding-bottom:30rpx;display: flex;justify-content: center;align-items: center">已显示所有数据</view>

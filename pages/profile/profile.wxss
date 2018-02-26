@@ -36,3 +36,24 @@ page {
 .last{
     border-bottom:none;
 }
+
+.My-Main{
+  width: 100%;
+  height: 180rpx;
+  background: white;
+  margin-top: 15rpx;
+}
+.userImage{
+  display: block;
+  width: 143rpx;
+  height: 143rpx;
+  float: left;
+  margin: 20rpx
+}
+.userName{
+  font-size: 30rpx;
+  margin-top: 12rpx;
+  margin-left: 30rpx;
+  float: left;
+  line-height: 143rpx
+}
