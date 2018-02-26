@@ -3,8 +3,8 @@ var app = getApp()
 Page({
   data: {
     search: {
-      placeholder: '找影视剧,影人,影院',
-      his: ['万达', '大地影院', '华夏']
+      placeholder: '找货源,车源',
+      his: ['钢铁', '大货车', '小箱车']
     },
     theater: []
 

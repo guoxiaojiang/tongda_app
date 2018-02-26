@@ -14,14 +14,27 @@
 <view class="warp" style="height:wrap;">
   <view class='details'>
     <view class="price">{{price}}</view>
-    <text class="tBar" style='font-size: 26rpx;  color: #999999' decode="{{true}}" space="{{true}}">{{deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{publishTime}}发布</text>
+    <text wx:if="{{price != '面议'}}" class="rmb">元</text>
+    <text class="tBar" style='font-size: 28rpx;' decode="{{true}}" space="{{true}}">{{deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{publishTime}}发布</text>
   </view>
 </view>
 <view class="warp" style="height:wrap;">
-  <view class="tBar">装货地址:{{fromAddress}}</view>
+  <view class="tBar">装货地址: {{fromAddress}}</view>
+</view>
+<view class="warp" style="height:wrap;">
+  <view class="tBar">目的地: {{toAddress}}</view>
 </view>
 
-<view class="buttons">
-  <button bindtap="navi" type='primary'>装货位置</button>
-  <button bindtap="callPhone" type="warn">拨打 {{phoneNum}}</button>
-</view>
+  <view class='buttons'>
+    <view class='left'>
+      <text class='bt-text' bindtap="callPhone">拨打电话</text>
+    </view>
+    <view class='right'>
+      <view class='right-navi-from'>
+        <text class='bt-text' bindtap="naviFrom">装货位置</text>
+      </view>
+      <view class='right-navi-to'>
+        <text class='bt-text' bindtap="naviTo">目的地</text>
+      </view>
+    </view>
+  </view>

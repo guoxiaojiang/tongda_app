@@ -11,6 +11,8 @@ Page({
     fromAddress: "",
     fromLatitude: "",
     fromLongitude: "",
+    toLatitude:"",
+    toLongitude: "",
     toAddress: "",
     deliverTime: "",
     phoneNum: "",
@@ -31,6 +33,8 @@ Page({
     var fromLat = param.fromLatitude;
     var coverImg = param.coverImg;
     var phone = param.phoneNum;
+    var toLatitude = param.toLatitude;
+    var toLongitude = param.toLongitude;
     console.log("goodsName:" + name + ", goodsDetail:" + detail + ", price:" + price
       + ", publishTime:" + publishTime
       + ", deliverTime:" + date + " " + time + ", fromAddress:" + fromAdd + ", toAddress:" + toAdd + ", fromLatitude:" + fromLat + ", fromLongitude:" + fromLong + ", phoneNum:" + phone)
@@ -42,6 +46,8 @@ Page({
       fromAddress: fromAdd,
       fromLatitude: fromLat,
       fromLongitude: fromLong,
+      toLatitude: toLatitude,
+      toLongitude: toLongitude,
       toAddress: toAdd,
       publishTime: publishTime,
       phoneNum: phone,
@@ -62,11 +68,19 @@ Page({
     })
   },
 
-  navi: function () {
+  naviFrom: function () {
     var that = this
     wx.openLocation({
       latitude: parseFloat(that.data.fromLatitude),
       longitude: parseFloat(that.data.fromLongitude),
+    })
+  },
+
+   naviTo: function () {
+    var that = this
+    wx.openLocation({
+      latitude: parseFloat(that.data.toLatitude),
+      longitude: parseFloat(that.data.toLongitude),
     })
   }
 })

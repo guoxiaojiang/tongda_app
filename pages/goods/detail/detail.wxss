@@ -24,11 +24,42 @@ page {
   color: white;
 }
 .buttons {
-  display: flex;
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  padding-bottom: 10rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0rpx;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  background: #1AAD19;
+  float: left;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.right-navi-from {
+  width: 50%;
+  height: 100%;
+  background: #e3211e;
+  float: left;
+}
+.right-navi-to {
+  width: 50%;
+  height: 100%;
+  background: #ff9800;
+  float: left;
+}
+.bt-text {
+  display: block;
+  color: white;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 25rpx;
 }
 
 .call {
@@ -81,3 +112,8 @@ page {
   align-items: flex-end;
 }
 
+.rmb {
+  margin: 24rpx 0 22rpx 8rpx;
+  font-size: 26rpx;
+  color:#999999;
+}
