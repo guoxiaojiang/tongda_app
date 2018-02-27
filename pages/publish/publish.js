@@ -218,6 +218,9 @@ Page({
 
   //发布按钮
   onPublish: function () {
+    this.setData({
+      todayDate: util.formatTime(new Date(), "MM-dd hh:mm")
+    });
     if (util.isEmpty(this.data.goodsName)) {
       wx.showToast({
         title: '请输入货物名称',
