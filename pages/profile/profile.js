@@ -20,5 +20,22 @@ Page({
         })
       }
     })
+
+    wx.getStorage({
+      key: 'mobile',
+      success: function (res) {
+        console.log("saved mobile:" + res.data)
+      },
+      fail: function (err) {
+        console.log("saved error:" + JSON.stringify(err))
+        wx.redirectTo({
+          url: '../login/login',
+        })
+      }
+    })
+
+
+
+
   }
 })

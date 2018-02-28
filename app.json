@@ -9,18 +9,13 @@
     "pages/search/indexsearch/indexsearch",
     "pages/trucks/index",
     "pages/trucks/detail/truck-details",
-    "pages/profile/order/order",
-    "pages/profile/coupon/coupon",
-    "pages/profile/vipCard/vipCard",
-    "pages/profile/wonder/wonder",
-    "pages/profile/saw/saw"
+    "pages/login/login"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#D43E37",
     "navigationBarTitleText": "通达货运",
-    "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#6A6767",
