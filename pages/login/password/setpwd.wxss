@@ -1,0 +1,53 @@
+
+page {
+  background-color: #f3f3f3;
+  padding: 30rpx 0 0;
+}
+
+.inputpwd {
+  width: 700rpx;
+  display: flex;
+  border: 1rpx solid #ddd;
+  background-color: #fff;
+  margin: 20rpx auto 0;
+  border-radius: 3rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.inputpwd input {
+  flex: 1;
+  padding: 0 10rpx;
+  height: 100%;
+}
+
+
+.code .label {
+  width: 500rpx;
+  border-left: 1rpx solid #eee;
+  text-align: center;
+}
+
+
+.sub {
+  width: 350rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 3rpx;
+  margin: 30rpx auto;
+}
+
+.sub-ok {
+  background-color: #576b95;
+  color: #fff;
+}
+
+.sub-skip {
+  background-color: #ff0000;
+  color: #fff;
+}
+.button {
+  display: flex;
+  margin: 20rpx auto 0;
+}

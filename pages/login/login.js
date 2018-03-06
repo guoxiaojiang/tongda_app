@@ -56,6 +56,21 @@ Page({
 
   sendCode: function () {
     var that = this
+      if (this.data.phoneOk) {
+      this.setData({
+        sec: 90,
+        btnStatus: false
+      });
+      var tm = setInterval(function () {
+        if (that.data.sec > 0) {
+          that.setData({ sec: that.data.sec - 1 });
+          if (that.data.sec == 0) {
+            that.setData({ btnStatus: true });
+            clearInterval(tm);
+          }
+        }
+      }, 1000);
+    }
     if (!util.checkPhone(this.data.phone)) {
       wx.showToast({
         title: '请输入正确的手机号',
@@ -105,11 +120,16 @@ Page({
       }
 
       if (this.data.code === this.data.vcode) {
-        //验证成功，登录 or 注册
-        console.log('登录成功！');
-        wx.reLaunch({
-          url: '../goods/index'
+        //验证成功，修改密码
+
+        wx.navigateTo({
+          url: './password/setpwd',
         })
+
+        // wx.reLaunch({
+        //   url: '../goods/index'
+        // })
+        base.globalData.moble = this.data.phone
         wx.setStorage({
           key: "mobile",
           data: this.data.phone

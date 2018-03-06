@@ -1,0 +1,12 @@
+<view class="inputpwd code">
+  <input type="text" maxlength="16" password placeholder="8~16位字母、数字" bindinput="onInputPwd" />
+</view>
+
+<view class="inputpwd code">
+  <input type="text" maxlength="16" password placeholder="请再次确认" bindinput="onInputConfirmPwd" />
+</view>
+
+<view class='button'>
+<view class="sub sub-skip" bindtap="skip">跳 过</view>
+<view class="sub sub-ok" bindtap="doRegist">完 成</view>
+</view>

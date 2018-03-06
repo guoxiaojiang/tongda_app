@@ -1,3 +1,5 @@
+var app = getApp();
+
 Page({
 
   /**
@@ -6,18 +8,26 @@ Page({
   data: {
     userImage: '',
     userName: '',
+    mobile:''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var _this = this
+    this.setData({
+      mobile: app.globalData.moble
+    })
+    
     wx.getUserInfo({
       success: function (res) {
+        console.log("getuser info:" + res.userInfo.nickName)
         _this.setData({
           userImage: res.userInfo.avatarUrl,
           userName: res.userInfo.nickName
         })
+        app.globalData.avatarUrl = res.userInfo.avatarUrl
+        app.globalData.nickName = res.userInfo.nickName
       }
     })
 
@@ -33,9 +43,5 @@ Page({
         })
       }
     })
-
-
-
-
   }
 })

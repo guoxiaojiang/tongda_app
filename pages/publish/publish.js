@@ -41,7 +41,8 @@ Page({
     goodsName: "",
     goodsDetail: "",
     phoneNum:"",
-    userName: ""
+    userName: "",
+    userMobile:""
   },
 
   /**
@@ -49,6 +50,10 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    that.setData({
+     phoneNum: app.globalData.moble,
+     userMobile: app.globalData.moble
+    }),
 
     /** 
      * 获取系统信息 
@@ -284,6 +289,7 @@ Page({
       showUploading: true
     })
 
+//just for test
     var testImgs = [
       'http://211.159.175.56:8888/public/img/pingguo.png',
       'http://211.159.175.56:8888/public/img/gangcai.png',
@@ -316,7 +322,8 @@ Page({
       goodsName: this.data.goodsName,
       goodsDetail: this.data.goodsDetail,
       phoneNum: this.data.phoneNum,
-      userName: this.data.userName
+      userName: this.data.userName,
+      userMobile: this.data.userMobile
     }
 
     console.log("publishData:" + publishData.fromCity)

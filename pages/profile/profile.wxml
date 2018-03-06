@@ -1,6 +1,9 @@
  <view class='My-Main'>
       <image src="{{userImage}}" class="userImage"></image>
-      <text class="userName">{{userName}}</text>
+      <view class="userinfo">
+        <text class="userName">{{userName}}</text>
+        <text class="userMobile">手机号: {{mobile}}</text>
+      </view>
   </view>
 
 <view class="warp">

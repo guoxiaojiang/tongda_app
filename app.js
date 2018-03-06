@@ -1,6 +1,7 @@
 var qqmap = require('./vendor/qqmap-sdk.min.js')
 App({
     onLaunch: function () {
+      this.globalData.moble = wx.getStorageSync('mobile')
     },
     getpol: function (cb) {
         var that = this
@@ -62,11 +63,12 @@ App({
         })
     },
     globalData: {
-        userInfo: null,
+        moble: '',
+        avatarUrl: '',
+        nickName: '',
         positionCity: '',
         currentCity: '',
         remind: false,
-        // host:'192.168.33.245:8888'
-        host:'tdtransport.cn:8888'
+        host:'211.159.175.56:8888'
     }
 })

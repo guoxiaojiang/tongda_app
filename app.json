@@ -9,7 +9,8 @@
     "pages/search/indexsearch/indexsearch",
     "pages/trucks/index",
     "pages/trucks/detail/truck-details",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/login/password/setpwd"
   ],
   "window": {
     "backgroundTextStyle": "dark",

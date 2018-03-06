@@ -31,29 +31,43 @@ page {
   right: 0;
   margin-right: 28rpx;
   margin-top: 30rpx;
-  
-}
-.last{
-    border-bottom:none;
 }
 
-.My-Main{
+.last {
+  border-bottom: none;
+}
+
+.My-Main {
   width: 100%;
   height: 180rpx;
   background: white;
   margin-top: 15rpx;
+  display: flex;
+  align-items: center;
 }
-.userImage{
+
+.userImage {
   display: block;
   width: 143rpx;
   height: 143rpx;
   float: left;
-  margin: 20rpx
+  margin: 20rpx;
 }
-.userName{
+
+.userName {
   font-size: 30rpx;
+}
+
+.userinfo {
   margin-top: 12rpx;
   margin-left: 30rpx;
-  float: left;
-  line-height: 143rpx
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+.userMobile {
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #ccc;
 }
