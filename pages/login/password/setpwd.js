@@ -29,7 +29,7 @@ Page({
       })
       return;
     }
-    if (pwd.length < 6) {
+    if (pwd.length < 8) {
       wx.showToast({
         title: '密码位数不符合要求',
         icon: 'none',

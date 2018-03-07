@@ -9,7 +9,7 @@
 </view>
 <view wx:if="{{tab==1}}">
   <view class="fm code">
-    <input type="text" password placeholder="请输入登录密码" bindinput="changepwd" value="{{pwd}}" />
+    <input type="text" password placeholder="请输入登录密码" bindinput="changepwd" />
   </view>
 </view>
 <view wx:if="{{tab==2}}">
@@ -23,4 +23,4 @@
   </view>
 </view>
 
-<view class="sub {{phoneOk&&codeOk?'sub-ok':'sub-dis'}}" bindtap="login">登 录</view>
+<view class="sub {{phoneOk&&(codeOk || pwdOk)?'sub-ok':'sub-dis'}}" bindtap="login">登 录</view>

@@ -16,7 +16,7 @@
         <view class="intro">
           <view style="font-size:28rpx; color:#686868">{{item.goodsName}}</view>
           <view style="font-size:26rpx; color:#686868">{{item.fromCity}} -> {{item.toCity}}</view>
-          <view style="font-size:26rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">{{item.deliverTime}} 发货</view>
+          <view style="font-size:26rpx;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; color:#686868">{{item.deliverDate}} {{item.deliverTime}} 发货</view>
         </view>
         <view class="buy">
 
