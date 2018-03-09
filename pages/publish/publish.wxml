@@ -3,13 +3,13 @@
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">发布车源</view>
 </view>
 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
   <swiper-item>
     <!--添加图片-->
     <view class="select-consumption-patterns">
-      <view class="consumption-patterns-item" wx:for="{{consumpPatternsList}}">
-        <view class="ui-flex-ver ui-flex-center ui-p10" data-index="{{index}}" bindtap="onConsumptionItemClick">
-          <image class="consumption-patterns-item-icon" src="{{item.isSelect ? item.iconSel : item.icon}}"></image>
+      <view class="consumption-patterns-item" wx:for="{{goodsPicList}}">
+        <view class="ui-flex-ver ui-flex-center ui-p4" data-index="{{index}}" bindtap="{{item.isSelect ? 'onConsumptionItemClick' : 'onImgItemClick'}}">
+          <image class="consumption-patterns-item-icon" src="{{item.path}}"></image>
         </view>
       </view>
     </view>

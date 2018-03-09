@@ -18,12 +18,6 @@ Page({
     // tab切换  
     currentTab: 0,
     showUploading: false,
-    consumpPatternsList: [
-      {
-        icon: "../../img/publish/timg.jpeg",
-        isSelect: true,
-        iconSel: "../../img/publish/timg.jpeg"
-      }],
     date: "",//发货日期
     time: "", //发货时间
     todayDate: "",
@@ -40,9 +34,16 @@ Page({
     price: "",
     goodsName: "",
     goodsDetail: "",
-    phoneNum:"",
+    phoneNum: "",
     userName: "",
-    userMobile:""
+    userMobile: "",
+    iconSel: "../../img/publish/timg.jpeg",
+    isIconFull: false,
+
+    goodsPicList: [{
+      path: "../../img/publish/timg.jpeg",
+      isSelect: true
+    }],
   },
 
   /**
@@ -51,23 +52,23 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.setData({
-     phoneNum: app.globalData.moble,
-     userMobile: app.globalData.moble
+      phoneNum: app.globalData.moble,
+      userMobile: app.globalData.moble
     }),
 
-    /** 
-     * 获取系统信息 
-     */
-    wx.getSystemInfo({
+      /** 
+       * 获取系统信息 
+       */
+      wx.getSystemInfo({
 
-      success: function (res) {
-        that.setData({
-          winWidth: res.windowWidth,
-          winHeight: res.windowHeight
-        });
-      }
+        success: function (res) {
+          that.setData({
+            winWidth: res.windowWidth,
+            winHeight: res.windowHeight
+          });
+        }
 
-    });
+      });
 
     wx.getUserInfo({
       success: function (res) {
@@ -112,6 +113,59 @@ Page({
       }
     })
 
+  },
+
+  onConsumptionItemClick: function () {
+    var that = this
+    var goodsPicList = this.data.goodsPicList
+    var currentLength = goodsPicList.length
+    wx.chooseImage({
+      count: 5 - currentLength, // 最多总共可选4张，默认9
+      // sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      // sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths
+
+        if (goodsPicList.length < 4) {
+          var consumpLength = goodsPicList.length
+
+          for (var i = 0; i < tempFilePaths.length; i++) {
+
+            var tempPic = {
+              path: tempFilePaths[i],
+              isSelect: false
+            }
+
+            goodsPicList.unshift(tempPic)
+            consumpLength++;
+            if (consumpLength >= 5) {
+              goodsPicList.pop()
+              console.log("after goodsPicList pop:" + goodsPicList.length)
+              that.setData({
+                isIconFull: true
+              })
+              break;
+            }
+          }
+
+          that.setData({
+            goodsPicList: goodsPicList
+          })
+        } else if (goodsPicList.length == 4) {
+          var tempPic = {
+            path: tempFilePaths[0],
+            isSelect: false
+          }
+          goodsPicList.unshift(tempPic)
+          goodsPicList.pop()
+          that.setData({
+            goodsPicList: goodsPicList,
+            isIconFull: true
+          })
+        }
+      }
+    })
   },
 
   //名字输入
@@ -223,6 +277,7 @@ Page({
 
   //发布按钮
   onPublish: function () {
+    var that = this
     this.setData({
       todayDate: util.formatTime(new Date(), "MM-dd hh:mm")
     });
@@ -289,7 +344,7 @@ Page({
       showUploading: true
     })
 
-//just for test
+    //-------------------------------------just for test
     var testImgs = [
       'http://211.159.175.56:8888/public/img/pingguo.png',
       'http://211.159.175.56:8888/public/img/gangcai.png',
@@ -302,6 +357,7 @@ Page({
     ];
     var testImg = testImgs[util.randomFrom(0, 7)];
     console.log('testImg is:' + testImg);
+    //------------------------------------------------end
 
     var publishData = {
       deliverDate: this.data.date,
@@ -325,35 +381,96 @@ Page({
       userName: this.data.userName,
       userMobile: this.data.userMobile
     }
-
-    console.log("publishData:" + publishData.fromCity)
-    var that = this;
-    wx.request({
-      url: 'http://' + app.globalData.host + '/api/publish',
-      data: publishData,
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        console.log(res.data)
+    var goodsPicList = this.data.goodsPicList
+    var isFull = this.data.isIconFull
+    var poped = {}
+    if (goodsPicList.length > 1) {
+      if (!isFull) {
+        poped = goodsPicList.pop()
+      }
+      util.uploadimg({
+        url: 'http://' + app.globalData.host + '/api/uploadPic?page=publishGoods',
+        path: goodsPicList,
+        result : []
+      }, function(result) {
+        console.log("uploadimg success, result:" + result)
+        publishData.coverImgs = result
+        var last = result.length-1
+        publishData.coverImg = result[0]
+        wx.request({
+          url: 'http://' + app.globalData.host + '/api/publish',
+          data: publishData,
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            console.log(res.data)
+            wx.showToast({
+              title: '发布成功',
+              icon: 'success',
+              duration: 2000
+            })
+            that.setData({
+              price: "",
+              goodsName: "",
+              goodsDetail: "",
+              goodsPicList: [{
+                path: "../../img/publish/timg.jpeg",
+                isSelect: true
+              }]
+            })
+          },
+          complete: function () {
+            that.setData({
+              showUploading: false
+            })
+          }
+        })
+      }, function() {
         wx.showToast({
-          title: '发布成功',
-          icon: 'success',
-          duration: 2000
+          title: '图片发布失败.请重试',
+          icon: 'none',
+          duration: 1000
         })
-        that.setData({
-          price: "",
-          goodsName: "",
-          goodsDetail: ""
-        })
-      },
-      complete: function () {
+        goodsPicList.push(poped)
         that.setData({
           showUploading: false
         })
-      }
-    })
+      })
+    } else {
+      var that = this;
+      wx.request({
+        url: 'http://' + app.globalData.host + '/api/publish',
+        data: publishData,
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          console.log(res.data)
+          wx.showToast({
+            title: '发布成功',
+            icon: 'success',
+            duration: 2000
+          })
+          that.setData({
+            price: "",
+            goodsName: "",
+            goodsDetail: "",
+            goodsPicList: [{
+              path: "../../img/publish/timg.jpeg",
+              isSelect: true
+            }]
+          })
+        },
+        complete: function () {
+          that.setData({
+            showUploading: false
+          })
+        }
+      })
+    }
 
   },
 
@@ -392,47 +509,6 @@ Page({
       time: util.formatTime(new Date(), "hh:mm"),
       todayDate: util.formatTime(new Date(), "MM-dd hh:mm"),
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
+
 })

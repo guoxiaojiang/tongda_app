@@ -1,3 +1,5 @@
+var app = getApp()
+
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -184,6 +186,59 @@ function checkTel(tel) {
 }
 
 
+//多张图片上传
+function uploadimg(imgData, succ, err) {
+  var that = this
+  var i = imgData.i ? imgData.i : 0,//当前上传的哪张图片
+    success = imgData.success ? imgData.success : 0,//上传成功的个数
+    fail = imgData.fail ? imgData.fail : 0;//上传失败的个数
+  wx.uploadFile({
+    url: imgData.url,
+    filePath: imgData.path[i].path,
+    name: 'file',//这里根据自己的实际情况改
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    success: (res) => {
+      //好坑啊，uploadFile success 中res.data拿到的是string,需要转成json
+      var jsonData = JSON.parse(res.data)
+      console.log("jsonData.message:" + jsonData.message)
+      if (jsonData.code === 1) {
+        //把成功之后的远程文件路径保存
+        imgData.result.push('http://' + app.globalData.host + jsonData.couldPath)
+        console.log("result[" + success + "]:" + imgData.result[success])
+        success++;//图片上传成功，图片上传成功的变量+1
+      } else {
+        fail++;
+      }
+    },
+    fail: (res) => {
+      fail++;//图片上传失败，图片上传失败的变量+1
+      console.log('fail:' + i + "fail:" + fail);
+    },
+    complete: () => {
+      console.log(i);
+      i++;//这个图片执行完上传后，开始上传下一张
+      if (i == imgData.path.length) {   //当图片传完时，停止调用  
+        if (success > 0) {
+          succ(imgData.result)
+        } else {
+          err()
+        }
+        console.log('执行完毕');
+        console.log('成功：' + success + " 失败：" + fail);
+      } else {//若图片还没有传完，则继续调用函数
+        console.log(i);
+        imgData.i = i;
+        imgData.success = success;
+        imgData.fail = fail;
+        that.uploadimg(imgData, succ, err);
+      }
+
+    }
+  });
+}
+
 
 module.exports = {
   formatTime: formatTime,
@@ -192,5 +247,6 @@ module.exports = {
   randomFrom: randomFrom,
   json2Form: json2Form,
   checkPhone: checkPhone,
-  checkTel: checkTel
+  checkTel: checkTel,
+  uploadimg: uploadimg
 }

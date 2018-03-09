@@ -40,8 +40,8 @@
 }
 
 .consumption-patterns-item-icon {
-  width: 100rpx;
-  height: 100rpx;
+  width: 160rpx;
+  height: 160rpx;
 }
 
 .deliver-item {
@@ -73,8 +73,8 @@
 flex:1;
 }
 
-.ui-p10{
-  padding: 10rpx;
+.ui-p4{
+  padding: 4rpx;
 }
 
 .date-text {
