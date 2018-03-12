@@ -1,7 +1,7 @@
-<image src="{{coverImg}}" class="filter"></image>
+<image src="{{detailData.coverImg}}" class="filter"></image>
 
 <swiper class="head" autoplay="{{autoplay}}" indicator-dots="{{indicator_dots}}">
-  <block wx:for="{{coverImgs}}">
+  <block wx:for="{{detailData.coverImgs}}">
     <swiper-item>
       <image src="{{item}}" style="height:100%;width:100%;"></image>
     </swiper-item>
@@ -9,20 +9,20 @@
 </swiper>
 
 <view class="warp" style="height:wrap;">
-  <view class="tBar">{{goodsDetail}}</view>
+  <view class="tBar">{{detailData.goodsDetail}}</view>
 </view>
 <view class="warp" style="height:wrap;">
   <view class='details'>
-    <view class="price">{{price}}</view>
-    <text wx:if="{{price != '面议'}}" class="rmb">元</text>
-    <text class="tBar" style='font-size: 28rpx;' decode="{{true}}" space="{{true}}">{{deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{publishTime}}发布</text>
+    <view class="price">{{detailData.price}}</view>
+    <text wx:if="{{detailData.price != '面议'}}" class="rmb">元</text>
+    <text class="tBar" style='font-size: 28rpx;' decode="{{true}}" space="{{true}}">{{detailData.deliverDate}} {{detailData.deliverTime}}发货&nbsp;&nbsp;&nbsp;&nbsp;{{detailData.publishTime}}发布</text>
   </view>
 </view>
 <view class="warp" style="height:wrap;">
-  <view class="tBar">装货地址: {{fromAddress}}</view>
+  <view class="tBar">装货地址: {{detailData.fromAddress}}</view>
 </view>
 <view class="warp" style="height:wrap;">
-  <view class="tBar">目的地: {{toAddress}}</view>
+  <view class="tBar">目的地: {{detailData.toAddress}}</view>
 </view>
 
   <view class='buttons'>

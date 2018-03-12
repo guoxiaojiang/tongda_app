@@ -15,22 +15,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
-    this.setData({
-      mobile: app.globalData.moble
-    })
     
-    wx.getUserInfo({
-      success: function (res) {
-        console.log("getuser info:" + res.userInfo.nickName)
-        _this.setData({
-          userImage: res.userInfo.avatarUrl,
-          userName: res.userInfo.nickName
-        })
-        app.globalData.avatarUrl = res.userInfo.avatarUrl
-        app.globalData.nickName = res.userInfo.nickName
-      }
-    })
-
     wx.getStorage({
       key: 'mobile',
       success: function (res) {
@@ -41,6 +26,23 @@ Page({
         wx.redirectTo({
           url: '../login/login',
         })
+      }
+    })
+
+    this.setData({
+      mobile: app.globalData.moble
+    })
+    
+    
+    wx.getUserInfo({
+      success: function (res) {
+        console.log("getuser info:" + res.userInfo.nickName)
+        _this.setData({
+          userImage: res.userInfo.avatarUrl,
+          userName: res.userInfo.nickName
+        })
+        app.globalData.avatarUrl = res.userInfo.avatarUrl
+        app.globalData.nickName = res.userInfo.nickName
       }
     })
   }

@@ -51,6 +51,20 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+
+    wx.getStorage({
+      key: 'mobile',
+      success: function (res) {
+        console.log("saved mobile:" + res.data)
+      },
+      fail: function (err) {
+        console.log("saved error:" + JSON.stringify(err))
+        wx.redirectTo({
+          url: '../login/login',
+        })
+      }
+    })
+
     that.setData({
       phoneNum: app.globalData.moble,
       userMobile: app.globalData.moble
@@ -381,6 +395,7 @@ Page({
       userName: this.data.userName,
       userMobile: this.data.userMobile
     }
+
     var goodsPicList = this.data.goodsPicList
     var isFull = this.data.isIconFull
     var poped = {}

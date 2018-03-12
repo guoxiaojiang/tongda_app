@@ -9,7 +9,7 @@
   </block>
 </swiper>
 <block wx:for="{{indexData.goodsList}}">
-  <navigator url="./detail/detail?goodsName={{item.goodsName}}&goodsDetail={{item.goodsDetail}}&deliverDate={{item.deliverDate}}&deliverTime={{item.deliverTime}}&publishTime={{item.publishTime}}&coverImg={{item.coverImg}}&price={{item.price}}&fromAddress={{item.fromAddress}}&toAddress={{item.toAddress}}&fromLatitude={{item.fromLatitude}}&fromLongitude={{item.fromLongitude}}&toLatitude={{item.toLatitude}}&toLongitude={{item.toLongitude}}&phoneNum={{item.phoneNum}}">
+  <navigator url="{{'./detail/detail?goodsId=' + item._id}}">
     <view style="height:216rpx;" class="detail">
       <image src="{{item.coverImg}}" style="height:172rpx;width:172rpx;"></image>
       <view class="intro-warp">

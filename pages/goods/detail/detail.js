@@ -4,56 +4,23 @@ Page({
     flexed: false,
     autoplay: false,
     indicator_dots: false,
-    goodsName: "",
-    goodsDetail: "",
-    price: "",
-    publishTime: "",
-    fromAddress: "",
-    fromLatitude: "",
-    fromLongitude: "",
-    toLatitude:"",
-    toLongitude: "",
-    toAddress: "",
-    deliverTime: "",
-    phoneNum: "",
-    coverImg:"",
-    coverImgs:[],
+    detailData: {}
   },
   onLoad: function (param) {
     var that = this;
-    var name = param.goodsName;
-    var detail = param.goodsDetail;
-    var price = param.price;
-    var time = param.deliverTime;
-    var date = param.deliverDate;
-    var publishTime = param.publishTime;
-    var fromAdd = param.fromAddress;
-    var toAdd = param.toAddress;
-    var fromLong = param.fromLongitude;
-    var fromLat = param.fromLatitude;
-    var coverImg = param.coverImg;
-    var phone = param.phoneNum;
-    var toLatitude = param.toLatitude;
-    var toLongitude = param.toLongitude;
-    console.log("goodsName:" + name + ", goodsDetail:" + detail + ", price:" + price
-      + ", publishTime:" + publishTime
-      + ", deliverTime:" + date + " " + time + ", fromAddress:" + fromAdd + ", toAddress:" + toAdd + ", fromLatitude:" + fromLat + ", fromLongitude:" + fromLong + ", phoneNum:" + phone)
-    that.setData({
-      goodsName: name,
-      goodsDetail: detail,
-      price: price,
-      deliverTime: date + " " + time,
-      fromAddress: fromAdd,
-      fromLatitude: fromLat,
-      fromLongitude: fromLong,
-      toLatitude: toLatitude,
-      toLongitude: toLongitude,
-      toAddress: toAdd,
-      publishTime: publishTime,
-      phoneNum: phone,
-      coverImg: coverImg,
-      coverImgs: [coverImg]
+    var goodsId = param.goodsId
+    console.log("goodsId:" + goodsId)
+    wx.request({
+      url: 'http://' + app.globalData.host + '/api/detail?id=' + goodsId,
+      success: function (res) {
+        console.log(res.data)
+        console.log("coverImgs typeof:" + res.data.data.coverImgs)
+        that.setData({
+          detailData: res.data.data
+        })
+      }
     })
+
   },
   flex: function () {
     var that = this
@@ -64,23 +31,23 @@ Page({
   callPhone: function () {
     var that = this
     wx.makePhoneCall({
-      phoneNumber: that.data.phoneNum,
+      phoneNumber: that.data.detailData.phoneNum,
     })
   },
 
   naviFrom: function () {
     var that = this
     wx.openLocation({
-      latitude: parseFloat(that.data.fromLatitude),
-      longitude: parseFloat(that.data.fromLongitude),
+      latitude: parseFloat(that.data.detailData.fromLatitude),
+      longitude: parseFloat(that.data.detailData.fromLongitude),
     })
   },
 
    naviTo: function () {
     var that = this
     wx.openLocation({
-      latitude: parseFloat(that.data.toLatitude),
-      longitude: parseFloat(that.data.toLongitude),
+      latitude: parseFloat(that.data.detailData.toLatitude),
+      longitude: parseFloat(that.data.detailData.toLongitude),
     })
   }
 })
